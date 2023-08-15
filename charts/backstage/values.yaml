@@ -218,6 +218,8 @@ backstage:
       database:
           client: pg
           connection:
+            host: ${POSTGRES_SERVICE_HOST}
+            port: ${POSTGRES_SERVICE_PORT}
             password: ${POSTGRESQL_ADMIN_PASSWORD}
             user: postgres
     lighthouse:
