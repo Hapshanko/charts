@@ -330,6 +330,15 @@ postgresql:
   # -- Switch to enable or disable the PostgreSQL helm chart
   enabled: true
 
+  # -- For Openshift
+  primary:
+    securityContext:
+      enabled: false
+    podSecurityContext:
+      enabled: false
+    containerSecurityContext:
+      enabled: false
+        
   # -- The authentication details of the Postgres database
   auth:
 
