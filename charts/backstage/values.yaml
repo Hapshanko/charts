@@ -207,7 +207,19 @@ backstage:
   #   app:
   #     baseUrl: https://somedomain.tld
   # -- Generates ConfigMap and configures it in the Backstage pods
-  appConfig: {}
+  appConfig:
+    app:
+      baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
+      title: Backstage
+    backend:
+      baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
+      cors:
+        origin: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
+    lighthouse:
+      baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/lighthouse-api
+    techdocs:
+      storageUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs/static/docs
+      requestUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs
 
   # -- Node labels for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
