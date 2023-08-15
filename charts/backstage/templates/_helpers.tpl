@@ -58,7 +58,7 @@ Return the Postgres databaseSecret key to retrieve credentials for database
 */}}
 {{- define "backstage.postgresql.databaseSecretKey" -}}
 {{- if .Values.postgresql.auth.existingSecret -}}
-    {{- .Values.postgresql.auth.secretKeys.userPasswordKey  -}}
+    {{- .Values.postgresql.auth.secretKeys.adminPasswordKey  -}}
 {{- else -}}
     {{- print "password" -}}
 {{- end -}}
