@@ -215,11 +215,21 @@ backstage:
       baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
       cors:
         origin: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
+      database:
+          connection:
+            password: ${POSTGRESQL_ADMIN_PASSWORD}
+            user: postgres
     lighthouse:
       baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/lighthouse-api
     techdocs:
       storageUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs/static/docs
       requestUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs
+    extraEnvVars:
+    - name: POSTGRESQL_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: postgres-password
+          name: "{{ .Release.Name }}-postgresql"
 
   # -- Node labels for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
@@ -338,30 +348,18 @@ postgresql:
       enabled: false
     containerSecurityContext:
       enabled: false
+    extraEnvVars:
+    - name: POSTGRESQL_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: postgres-password
+          name: "{{ .Release.Name }}-postgresql"
         
   # -- The authentication details of the Postgres database
   auth:
-
-    # -- Name for a custom user to create
-    username: bn_backstage
-
-    # -- Password for the custom user to create
-    password: ""
-
-    # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: ""
-
-    # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
-
-      # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: admin-password
-
-      # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: user-password
-
-      # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: replication-password
+      adminPasswordKey: postgres-password
+      userPasswordKey: password
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: standalone
