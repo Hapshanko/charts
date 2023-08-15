@@ -1,0 +1,18 @@
+#Error: Cannot find module '/app/packages/backend'
+#try solution for me is adding this to Dockerfile: 
+#RUN chmod 775 /app
+#before CMD, maybe also USER node
+#for now anyuid..
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: backstage-official-rb
+  namespace: backstage-official
+subjects:
+  - kind: ServiceAccount
+    name: backstage-official
+    namespace: backstage-official
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 'system:openshift:scc:anyuid'
