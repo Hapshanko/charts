@@ -216,6 +216,7 @@ backstage:
       cors:
         origin: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com
       database:
+          client: pg
           connection:
             password: ${POSTGRESQL_ADMIN_PASSWORD}
             user: postgres
