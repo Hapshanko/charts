@@ -365,7 +365,6 @@ postgresql:
         
   # -- The authentication details of the Postgres database
   auth:
-    existingSecret: "{{ .Release.Name }}-postgresql"
     secretKeys:
       adminPasswordKey: postgres-password
       userPasswordKey: password
