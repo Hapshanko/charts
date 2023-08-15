@@ -350,11 +350,11 @@ postgresql:
 serviceAccount:
 
   # -- Enable the creation of a ServiceAccount for Backstage pods
-  create: false
+  create: true
 
   # -- Name of the ServiceAccount to use
   # If not set and `serviceAccount.create` is true, a name is generated
-  name: ""
+  name: "backstage-official"
 
   # -- Additional custom labels to the service ServiceAccount.
   labels: {}
