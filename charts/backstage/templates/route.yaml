@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: backstage-official
+  namespace: backstage-official
+spec:
+  host: backstage-official.apps.ocp410-dev.cloudlet-dev.com
+  to:
+    kind: Service
+    name: backstage-official
+    weight: 100
+  port:
+    targetPort: http-backend
+  tls:
+    termination: edge
+  wildcardPolicy: None
