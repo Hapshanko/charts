@@ -220,7 +220,7 @@ backstage:
           connection:
             host: ${BACKSTAGE_OFFICIAL_POSTGRESQL_SERVICE_HOST}
             port: ${BACKSTAGE_OFFICIAL_POSTGRESQL_SERVICE_PORT}
-            password: ${POSTGRESQL_ADMIN_PASSWORD}
+            password: ${POSTGRES_PASSWORD}
             user: postgres
     lighthouse:
       baseUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/lighthouse-api
