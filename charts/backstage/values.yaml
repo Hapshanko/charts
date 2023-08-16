@@ -228,7 +228,7 @@ backstage:
       storageUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs/static/docs
       requestUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs
       generator:
-        runIn: 'docker'
+        runIn: 'local'
         dockerImage: 'spotify/techdocs'
         pullImage: true
       builder: 'local'
