@@ -228,7 +228,7 @@ backstage:
       storageUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs/static/docs
       requestUrl: https://backstage-official.apps.ocp410-dev.cloudlet-dev.com/api/techdocs
     extraEnvVars:
-    - name: POSTGRESQL_ADMIN_PASSWORD
+    - name: POSTGRES_PASSWORD
       valueFrom:
         secretKeyRef:
           key: postgres-password
@@ -360,7 +360,7 @@ postgresql:
       size: 1Gi
       mountPath: /var/lib/pgsql/data
     extraEnvVars:
-    - name: POSTGRESQL_ADMIN_PASSWORD
+    - name: POSTGRES_PASSWORD
       valueFrom:
         secretKeyRef:
           key: postgres-password
