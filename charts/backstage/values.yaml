@@ -360,7 +360,7 @@ postgresql:
       size: 1Gi
       mountPath: /var/lib/pgsql/data
     extraEnvVars:
-    - name: POSTGRES_PASSWORD
+    - name: POSTGRESQL_ADMIN_PASSWORD
       valueFrom:
         secretKeyRef:
           key: postgres-password
